@@ -1,17 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Form, Button } from "react-bootstrap";
+import { userContext } from "../context/UserProvider";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+const {loginUsuario} = useContext(userContext)
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      await loginUsuario(email, password);
+      window.location.href = "/";
+    } catch (error) {
+      console.log(error)
+    }
   };
 
-  console.log(email, password);
 
   return (
     <>
