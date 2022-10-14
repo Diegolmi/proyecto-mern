@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Form, Button } from "react-bootstrap";
 import { userContext } from "../context/UserProvider";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -8,21 +9,23 @@ const Login = () => {
 
 const {loginUsuario} = useContext(userContext)
 
+const navigate = useNavigate()
 
-  const handleSubmit = async (e) => {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      await loginUsuario(email, password);
-      window.location.href = "/";
+      loginUsuario(email, password);
+      navigate("/user");
+
     } catch (error) {
-      console.log(error)
+      alert(error)
     }
   };
 
 
   return (
     <>
-      <h1>Login</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>Email address</Form.Label>
@@ -43,8 +46,9 @@ const {loginUsuario} = useContext(userContext)
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button className="btn btn-success" type="submit" />
+        <Button className="btn btn-success mt-2" type="submit"> Login </Button>
       </Form>
+      <a href="/registro"> Registrate aqui</a>
     </>
   );
 };

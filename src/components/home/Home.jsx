@@ -1,10 +1,14 @@
 import React from "react";
+import CardsEcommerce from "../cardsEcommerce/CardsEcommerce";
+import Carrusel from "../carrusel/Carrusel";
+
 
 const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <>
+     <Carrusel />
+     <CardsEcommerce />
+    </>
   );
 };
 
