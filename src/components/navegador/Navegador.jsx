@@ -22,12 +22,12 @@ function BasicExample() {
     <>
     <Navbar bg="dark" expand="lg">
       <Container>
-        <Navbar.Brand  className="navbar"   href="#home">Comision 5i</Navbar.Brand>
+        <Navbar.Brand  className="navbar"   onClick={() => navigate("/")}>Comision 5i</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav  className="me-auto navbar">
-            <Nav.Link  className="navbar" href="#home">Home</Nav.Link>
-            <Nav.Link   className="navbar" href="#link">Link</Nav.Link>
+            <Nav.Link  className="navbar" onClick={() => navigate("/")}>Home</Nav.Link>
+            <Nav.Link   className="navbar" onClick={() => navigate("/detalle-producto")}>Link</Nav.Link>
             {user ? <Button className="btn btn-danger" onClick={() => [logoutUsuario(), navigate("/")]  }> Cerrar Sesion </Button> : <Button className="btn btn-success" onClick={handleShow}> Login </Button> }
            
            

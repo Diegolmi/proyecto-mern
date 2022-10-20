@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
+import { Container } from "react-bootstrap";
 
 const Footer = () => {
   return (
-    <div>Footer</div>
-  )
-}
+    <>
+      <Container fluid>
+        <div style={{ backgroundColor: "red" }}>
+          <h1>Footerrrr</h1>
+          <h1>Footerrrr</h1>
+          <h1>Footerrrr</h1>
+          <h1>Footerrrr</h1>
+        </div>
+      </Container>
+    </>
+  );
+};
 
-export default Footer
+export default Footer;
