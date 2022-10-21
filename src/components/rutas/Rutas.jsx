@@ -6,6 +6,7 @@ import Galeria from "../galeria/Galeria";
 import Usuario from "../usuario/Usuario";
 import DetallesProductos from "../detallesProductos/DetallesProductos";
 import { userContext } from "../context/UserProvider";
+import NotFound from "../404/NotFound";
 
 const Rutas = () => {
   const { user } = useContext(userContext);
@@ -16,9 +17,13 @@ const Rutas = () => {
     <>
       <Routes>
         {user ? (<Route path="/user"  element={<Usuario />} />) : (<Route path="/registro" element={<Register />} />)}
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />}>
+          <Route path="bienvenido" element={<Galeria />} />
+        
+        </Route>
         <Route path="/registro" element={<Register />} />
-        <Route path="/detalle-producto" element={<DetallesProductos />} />
+        <Route path="/detalle-producto/:pokemonId" element={<DetallesProductos />} />
+        <Route path="*"  element={<NotFound />} />
       </Routes>
     </>
   );
